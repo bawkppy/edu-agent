@@ -1,22 +1,3 @@
-# S1 基地依赖（pip install -r requirements.txt）
-langchain>=0.3
-langchain-openai>=0.3        # DeepSeek OpenAI 兼容
-langchain-chroma>=0.2
-chromadb
-pydantic>=2
-python-dotenv
-requests                     # Ollama /api/embed 直调 + siliconflow rerank
-fastapi
-uvicorn
-# gradio 已随 Gradio UI 退役（2026-10 一期收口，唯一 UI = web_server 5174）：
-# 如需重跑 legacy/api_gradio.py（语音/反馈/修正版演示壳）再单独安装 gradio faster-whisper numpy
-pymupdf                      # PDF 自动切节（pdf_import.py）
-python-docx                  # Agent B 模板认定：.docx -> TemplateSpec（template_spec.py）
-Markdown                     # 教案 Markdown -> HTML（plan_html.py）
-python-multipart             # FastAPI 文件上传（/api/template/upload、/api/pdf/ingest）
-rank-bm25                    # 混合检索 BM25 通道（bm25_index.py）
-mcp>=1.2,<2                  # MCP 客户端 + edu-math 服务（mcp 2.x 移除了 mcp.server.fastmcp，必须 <2）
-sympy                        # edu-math 服务的符号计算内核
-python-pptx                  # 教案中心 PPT：本地生成真 .pptx（WPS 演示的 COM 新建/存盘在本机不可用）
-# 可选：rerank 本地精排（RERANK_ON=1 时启用）需要 sentence-transformers
-# sentence-transformers
+python-docx>=1.1.0
+fastmcp>=0.4.0
+typing-extensions>=4.0.0
